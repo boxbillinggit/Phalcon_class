@@ -41,8 +41,8 @@ class FlashSession
             }
         }
 		
-		$configFile  = require(ROOT_PATH . '/app/var/config/config.php');
-        $config = new PhConfig($configFile);
+		$di     = \Phalcon\DI::getDefault();
+		$config = $di->get('config');
 		
 		$connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
 			"host" => $config->database->host,
