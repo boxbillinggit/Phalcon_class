@@ -81,6 +81,9 @@ class FlashSession
             'type' => $type,
             'text' => $text,
         ];
+		
+		$this->session->write("_flashMessages", json_encode($this->messages));
+		
         return $this;
     }    
 
@@ -96,9 +99,7 @@ class FlashSession
             'text' => $text,
         ];
 		
-		$json = json_encode($this->messages);
-		
-		$this->session->write("_flashMessages", $json);
+		$this->session->write("_flashMessages", json_encode($this->messages));
 		
         return $this;
     }    
@@ -115,9 +116,7 @@ class FlashSession
             'text' => $text,
         ];
 		
-		$json = json_encode($this->messages);
-		
-		$this->session->write("_flashMessages", $json);
+		$this->session->write("_flashMessages", json_encode($this->messages));
 		
         return $this;
     }    
@@ -133,10 +132,8 @@ class FlashSession
             'type' => 'success',
             'text' => $text,
         ];
-		
-		$json = json_encode($this->messages);
-		
-		$this->session->write("_flashMessages", $json);
+				
+		$this->session->write("_flashMessages", json_encode($this->messages));
 			
         return $this;
     }
@@ -153,9 +150,7 @@ class FlashSession
             'text' => $text,
         ];
 		
-		$json = json_encode($this->messages);
-		
-		$this->session->write("_flashMessages", $json);
+		$this->session->write("_flashMessages", json_encode($this->messages));
 		
         return $this;
     }
