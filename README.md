@@ -1,12 +1,6 @@
 Phalcon_class
 =============
 
-
-File FlashSession.php move to directory:
-
-app/Library/Phalcon/Flash/
-
-
 Usage
 
 BootStrap.php
