@@ -5,7 +5,7 @@ Usage
 
 BootStrap.php
 
-<pre>
+```php
 	$this->_di->set('session', function() use ($config) {
 	
 		// Create a connection
@@ -25,20 +25,20 @@ BootStrap.php
 	
 		return $session;
 	});
-</pre>
+```
 
 FlashSession to bootstrap
 
-<code>
+```php
 $this->_di->set('flashSession', function() {
 			return new \Phalcon\Flash\FlashSession();
 });
-</code>
+```
 
 
 Database
 
-<pre>
+```sql
  CREATE TABLE `session_data` (
   `session_id` varchar(35) NOT NULL,
   `data` text NOT NULL,
@@ -46,4 +46,4 @@ Database
   `modified_at` int(15) unsigned DEFAULT NULL,
   PRIMARY KEY (`session_id`)
 )
-</pre>
+```
