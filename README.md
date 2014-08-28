@@ -5,8 +5,8 @@ Usage
 
 BootStrap.php
 
-<code>
-$this->_di->set('session', function() use ($config) {
+<pre>
+	$this->_di->set('session', function() use ($config) {
 	
 		// Create a connection
 		$connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
@@ -25,7 +25,7 @@ $this->_di->set('session', function() use ($config) {
 	
 		return $session;
 	});
-</code>
+</pre>
 
 FlashSession to bootstrap
 
@@ -34,3 +34,16 @@ $this->_di->set('flashSession', function() {
 			return new \Phalcon\Flash\FlashSession();
 });
 </code>
+
+
+Database
+
+<pre>
+ CREATE TABLE `session_data` (
+  `session_id` varchar(35) NOT NULL,
+  `data` text NOT NULL,
+  `created_at` int(15) unsigned NOT NULL,
+  `modified_at` int(15) unsigned DEFAULT NULL,
+  PRIMARY KEY (`session_id`)
+)
+</pre>
