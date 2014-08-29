@@ -44,7 +44,6 @@ FlashSession to bootstrap
 		});
 ```
 
-
 Database
 
 ```sql
@@ -55,4 +54,18 @@ Database
   `modified_at` int(15) unsigned DEFAULT NULL,
   PRIMARY KEY (`session_id`)
 )
+```
+
+```php
+$this->flashSession->notice("Message Notice");
+$this->flashSession->warning("Message Warning");
+$this->flashSession->success("Message Success");
+$this->flashSession->error("Message Error");
+$this->flashSession->dismissable("Message Dismissable");
+```
+
+Show message to view
+
+```php
+<?php echo $this->flashSession->output(); ?>
 ```
