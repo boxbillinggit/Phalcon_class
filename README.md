@@ -20,8 +20,11 @@ BootStrap.php
 			'db' => $connection,
 			'table' => 'session_data'
 		));
+		
+		//Check session_start
 	
-		$session->start();
+		if(session_status() == PHP_SESSION_NONE)
+        		$session->start();
 	
 		return $session;
 	});
