@@ -37,7 +37,7 @@ class FlashSession
 		
 		//Get From BootStrap Settings
 		$di     = \Phalcon\DI::getDefault();
-		$this->session = $di->get('session', true);
+		$this->session = $di->get('sessionDB', true);
 		
     }
 	
