@@ -41,22 +41,9 @@ class FlashSession
             }
         }
 		
+		//Get From BootStrap Settings
 		$di     = \Phalcon\DI::getDefault();
-		$config = $di->get('config');
-		
-		$connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
-			"host" => $config->database->host,
-			"username" => $config->database->username,
-			"password" => $config->database->password,
-			"dbname" => $config->database->dbname
-		));
-						
-		$session = new \Phalcon\Session\Adapter\Database(array(
-			'db' => $connection,
-			'table' => 'session_data'
-		));
-		
-		$this->session = $session;
+		$this->session = $di->get('session', true);
 		
     }
 	
