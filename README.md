@@ -6,7 +6,7 @@ Usage
 BootStrap.php
 
 ```php
-	$this->_di->set('session', function() use ($config) {
+	$this->_di->set('sessionDB', function() use ($config) {
 	
 		// Create a connection
 		$connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
@@ -16,7 +16,7 @@ BootStrap.php
 			"dbname" => $config->database->dbname
 		));
 						
-		$session = new Phalcon\Session\Adapter\Database(array(
+		$sessionDB = new Phalcon\Session\Adapter\Database(array(
 			'db' => $connection,
 			'table' => 'session_data'
 		));
@@ -24,9 +24,9 @@ BootStrap.php
 		//Check session_start
 	
 		if(session_status() == PHP_SESSION_NONE)
-        		$session->start();
+        		$sessionDB->start();
 	
-		return $session;
+		return $sessionDB;
 	});
 ```
 
