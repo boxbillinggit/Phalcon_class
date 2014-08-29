@@ -18,13 +18,7 @@ class FlashSession
      * Css classes collection
      * @var array
      */
-    protected $cssClasses = [
-        'warning' => 'alert alert-warning',
-        'notice' => 'alert alert-info',
-        'success' => 'alert alert-success',
-        'error' => 'alert alert-danger',
-        'dismissable' => 'alert alert-dismissable',
-    ];
+    protected $cssClasses = [];
 
     /**
      * Constructor
@@ -141,6 +135,23 @@ class FlashSession
 		
         return $this;
     }
+	
+	/**
+     * Adds dismissable message to stack and save to database
+     * @param string $text
+     * @return Flash
+     */
+	public function dismissable($text)
+	{
+		$this->messages[] = [
+            'type' => 'warning',
+            'text' => $text,
+        ];
+		
+		$this->session->write("_flashMessages", json_encode($this->messages));
+		
+        return $this;
+	}
 
     /**
      * Outputs messages from database session
