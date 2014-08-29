@@ -56,6 +56,8 @@ Database
 )
 ```
 
+Usage FlashSession
+
 ```php
 $this->flashSession->notice("Message Notice");
 $this->flashSession->warning("Message Warning");
