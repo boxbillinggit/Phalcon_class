@@ -33,9 +33,15 @@ BootStrap.php
 FlashSession to bootstrap
 
 ```php
-$this->_di->set('flashSession', function() {
-			return new \Phalcon\Flash\FlashSession();
-});
+		$this->_di->set('flashSession', function() {
+			return new \Phalcon\Flash\FlashSession(array(
+                        'warning' => 'alert alert-warning',
+                        'notice' => 'alert alert-info',
+                        'success' => 'alert alert-success',
+                        'error' => 'alert alert-danger',
+                        'dismissable' => 'alert alert-dismissable',
+                    ));
+		});
 ```
 
 
