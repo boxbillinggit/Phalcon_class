@@ -40,4 +40,14 @@ class Seo
 
 	}
 	
+	private static function __analitics($id)
+	{
+		
+	}
+	
+	private static function __piwik($id)
+	{
+		
+	}
+	
 }
