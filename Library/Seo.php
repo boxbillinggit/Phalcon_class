@@ -8,6 +8,7 @@ class Seo
 {
 	
 	protected $_description;
+	protected $_title_owner;
 	protected $_title;
 	protected $_canonical;
 	protected $_moduleName;
@@ -15,6 +16,16 @@ class Seo
 	protected $_actionName;
 	private static $_instance;
 	protected $_router;
+	
+	############################
+	#					       #
+	#	SiteMap Generator var  #
+	#						   #
+	############################
+	
+	protected $_xmlFile = 'sitemap.xml';
+	protected $_xmlPriority = '0.5';
+	
 	
 	public static function instance($title, $description, $canonical)
     {	
@@ -27,8 +38,7 @@ class Seo
 	
 	private function __construct($params)
     {
-		
-		$this->_title = $params->title;
+		$this->_title = $this->setPtitle($params->title);
 		$this->_description = $params->description;
 		$this->_canonical = $params->canonical;
 		
@@ -38,6 +48,21 @@ class Seo
 		$this->_controllerName = $this->_router->getActionName();
 		$this->_actionName = $this->_router->getActionName();
 
+	}
+	
+	public static function setTitle($title)
+	{
+		\Phalcon\Tag::setTitle($title);	
+	}
+	
+	public function setPtitle($title,$home = null)
+	{	
+		\Phalcon\Tag::prependTitle($title);
+	}
+	
+	private static function __sitemap($url)
+	{
+		
 	}
 	
 	private static function __analitics($id)
