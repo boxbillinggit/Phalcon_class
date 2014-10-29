@@ -1,6 +1,8 @@
 Phalcon_class
 =============
 
+<img src="https://travis-ci.org/boxbillinggit/Phalcon_class.svg">
+
 Usage
 
 BootStrap.php
